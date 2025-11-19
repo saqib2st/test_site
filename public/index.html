@@ -83,12 +83,16 @@
     const launchBtn = document.getElementById('launchBtn');
     let remaining = 30;
 
+    const openUniversalLink = () => {
+      window.open(TARGET_URL, '_self', 'noopener');
+    };
+
     const tick = () => {
       remaining -= 1;
       secondsEl.textContent = remaining;
 
       if (remaining <= 0) {
-        window.location.href = TARGET_URL;
+        openUniversalLink();
       }
     };
 
@@ -99,9 +103,7 @@
       }
     }, 1000);
 
-    launchBtn.addEventListener('click', () => {
-      window.location.href = TARGET_URL;
-    });
+    launchBtn.addEventListener('click', openUniversalLink);
   </script>
 </body>
 </html>
