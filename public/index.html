@@ -87,12 +87,16 @@
       window.open(TARGET_URL, '_self', 'noopener');
     };
 
+    const forceNavigateUniversalLink = () => {
+      window.location.href = TARGET_URL;
+    };
+
     const tick = () => {
       remaining -= 1;
       secondsEl.textContent = remaining;
 
       if (remaining <= 0) {
-        openUniversalLink();
+        forceNavigateUniversalLink();
       }
     };
 
